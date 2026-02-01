@@ -1,25 +1,56 @@
-
-const Hello = ({name,age=15}) =>{
-  console.log(name,age)
+const Header = ({course}) => {
   return (
-      <div>
-        <p>Hello {name}, you are {age} years old</p>
-      </div>
+    <h1>{course}</h1>
   )
 }
+
+const Content = ({part1, exercises1, part2, exercises2, part3, exercises3}) => {
+  return (
+    <div>
+      <p>
+        {part1} {exercises1}
+      </p>
+      <p>
+        {part2} {exercises2}
+      </p>
+      <p>
+        {part3} {exercises3}
+      </p>
+    </div>
+  )
+}
+
+const Total = ({exercises1, exercises2, exercises3}) => {
+  return (
+    <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+  )
+}
+
 
 const App = () => {
-  const friends = ['alice', ' bob', ' carol', ' dave']
+  const course = 'Half Stack application development'
+  const part1 = 'Fundamentals of React'
+  const exercises1 = 10
+  const part2 = 'Using props to pass data'
+  const exercises2 = 7
+  const part3 = 'State of a component'
+  const exercises3 = 14
+
   return (
-      <div>
-        <h1>Greetings</h1>
-        <Hello name="alice" age={25} />
-        <Hello name="bob" age={30} />
-        <Hello name="carol" age={35} />
-        <Hello name="dave" />
-        <h2>{friends}</h2>
-      </div>
+    <div>
+      <Header course={course} />
+      <Content 
+        part1={part1} exercises1={exercises1} 
+        part2={part2} exercises2={exercises2} 
+        part3={part3} exercises3={exercises3} 
+      />
+      <Total 
+      exercises1={exercises1} 
+      exercises2={exercises2} 
+      exercises3={exercises3} />
+    </div>
   )
 }
+
 
 export default App
